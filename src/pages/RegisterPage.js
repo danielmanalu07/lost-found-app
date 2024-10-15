@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/register.css';
+<<<<<<< HEAD
+=======
+import { register } from '../services/api';
+>>>>>>> master
 
 function RegisterPage() {
     const [name, setName] = useState('');
@@ -19,6 +23,7 @@ function RegisterPage() {
         setSuccess('');
 
         try {
+<<<<<<< HEAD
             const response = await axios.post('https://public-api.delcom.org/api/v1/auth/register', {
                 name,
                 email,
@@ -27,11 +32,19 @@ function RegisterPage() {
 
             if (response.data.success === true) {
                 setSuccess(response.data.message);
+=======
+            const data = await register(name, email, password);
+            if (data.success === true) {
+                setSuccess(data.message);
+>>>>>>> master
                 setTimeout(() => {
                     navigate('/login');
                 }, 2000);
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         } catch (error) {
             if (error.response && error.response.status === 400) {
                 setError(error.response.data.message);

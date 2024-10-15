@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import '../styles/login.css';
+=======
+import { useAuth } from '../App';
+import '../styles/login.css';
+import { login } from '../services/api';
+
+>>>>>>> master
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+<<<<<<< HEAD
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
+=======
+    const navigate = useNavigate();
+    const { login: authLogin } = useAuth();
+>>>>>>> master
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError('');
+<<<<<<< HEAD
         setSuccess('');
 
         try {
@@ -27,6 +40,15 @@ function LoginPage() {
                 localStorage.setItem('token', response.data.data.token);
                 navigate('/login');
                 setSuccess(response.data.message);
+=======
+
+        try {
+            const data = await login(email, password);
+            if (data && data.data.token) {
+                authLogin(data.data.token, data.data.user);
+                localStorage.setItem('success', data.message);
+                navigate('/');
+>>>>>>> master
             } else {
                 setError('Login gagal: Token tidak ditemukan dalam respons.');
             }
@@ -41,6 +63,10 @@ function LoginPage() {
         }
     };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     return (
         <div className="container d-flex justify-content-center align-items-center vh-100">
             <div className="card p-4 login-card w-75 bg-light">
@@ -52,12 +78,15 @@ function LoginPage() {
                     </div>
                 )}
 
+<<<<<<< HEAD
                 {success && (
                     <div className="alert alert-success" role="alert">
                         {success}
                     </div>
                 )}
 
+=======
+>>>>>>> master
                 <form onSubmit={handleLogin} className="animate__animated animate__fadeIn">
                     <div className="form-group mb-3">
                         <label htmlFor="email">Email</label>
@@ -105,4 +134,8 @@ function LoginPage() {
     );
 }
 
+<<<<<<< HEAD
 export default LoginPage;
+=======
+export default LoginPage;
+>>>>>>> master
