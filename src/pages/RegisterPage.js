@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/register.css';
+<<<<<<< HEAD
 import { register } from '../services/api';
+=======
+<<<<<<< HEAD
+=======
+import { register } from '../services/api';
+>>>>>>> master
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
 
 function RegisterPage() {
     const [name, setName] = useState('');
@@ -20,13 +27,37 @@ function RegisterPage() {
         setSuccess('');
 
         try {
+<<<<<<< HEAD
             const data = await register(name, email, password);
             if (data.success === true) {
                 setSuccess(data.message);
+=======
+<<<<<<< HEAD
+            const response = await axios.post('https://public-api.delcom.org/api/v1/auth/register', {
+                name,
+                email,
+                password
+            });
+
+            if (response.data.success === true) {
+                setSuccess(response.data.message);
+=======
+            const data = await register(name, email, password);
+            if (data.success === true) {
+                setSuccess(data.message);
+>>>>>>> master
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
                 setTimeout(() => {
                     navigate('/login');
                 }, 2000);
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
         } catch (error) {
             if (error.response && error.response.status === 400) {
                 setError(error.response.data.message);

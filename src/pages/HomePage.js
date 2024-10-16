@@ -2,16 +2,23 @@ import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from "react-router-dom";
 import Header from '../layouts/header';
+<<<<<<< HEAD
 import { fetchLostAndFoundData, deleteLostAndFoundData, getDailyStats, getMonthlyStats } from '../services/api';
 import { useAuth } from '../App';
+=======
+import { fetchLostAndFoundData } from '../services/api';
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
 
 function HomePage() {
     const [lostAndFoundItems, setLostAndFoundItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+<<<<<<< HEAD
     const { user } = useAuth();
     const [stats, setStats] = useState(null);
+=======
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
 
     useEffect(() => {
         const successMessage = localStorage.getItem('success');
@@ -30,6 +37,7 @@ function HomePage() {
 
     const fetchData = async () => {
         try {
+<<<<<<< HEAD
             const userId = user ? user.id : null;
 
             if (!userId) {
@@ -42,6 +50,13 @@ function HomePage() {
             setIsLoading(false);
         } catch (err) {
             if (err.message === 'No authentication token found') {
+=======
+            const data = await fetchLostAndFoundData();
+            setLostAndFoundItems(data);
+            setIsLoading(false);
+        } catch (err) {
+            if (err.message === false) {
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
                 Swal.fire({
                     title: 'Authentication Error',
                     text: 'Please log in to view this page.',
@@ -57,6 +72,7 @@ function HomePage() {
         }
     };
 
+<<<<<<< HEAD
     const handleDelete = async (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -114,6 +130,8 @@ function HomePage() {
 
 
 
+=======
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
     return (
         <div>
             <Header />
@@ -124,12 +142,15 @@ function HomePage() {
                             <Link className='btn btn-sm btn-info' to={'/add'}>Tambah Data</Link>
                         </div>
                         <div className='card-body'>
+<<<<<<< HEAD
                             <button className="btn btn-info me-2" onClick={handleDailyStats}>
                                 View Daily Stats
                             </button>
                             <button className="btn btn-info" onClick={handleMonthlyStats}>
                                 View Monthly Stats
                             </button>
+=======
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
                             {isLoading ? (
                                 <p className='text-center'>Loading...</p>
                             ) : error ? (
@@ -154,6 +175,7 @@ function HomePage() {
                                                     <td>{item.description}</td>
                                                     <td>{item.status}</td>
                                                     <td>
+<<<<<<< HEAD
                                                         <Link className="btn btn-sm btn-warning me-2" to={`/${item.id}`}>
                                                             Detail
                                                         </Link>
@@ -166,17 +188,24 @@ function HomePage() {
                                                         >
                                                             Delete
                                                         </button>
+=======
+                                                        <button className="btn btn-sm btn-warning me-2">Edit</button>
+                                                        <button className="btn btn-sm btn-danger">Delete</button>
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
                                                     </td>
                                                 </tr>
                                             ))}
                                         </tbody>
                                     </table>
+<<<<<<< HEAD
                                     {stats && (
                                         <div className="mt-5">
                                             <h3>Statistics</h3>
                                             <pre>{JSON.stringify(stats, null, 2)}</pre>
                                         </div>
                                     )}
+=======
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
                                 </div>
                             )}
                         </div>
@@ -187,4 +216,8 @@ function HomePage() {
     );
 }
 
+<<<<<<< HEAD
 export default HomePage;
+=======
+export default HomePage;
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c

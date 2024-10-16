@@ -27,6 +27,7 @@ export const register = async (name, email, password) => {
     }
 };
 
+<<<<<<< HEAD
 export const getProfile = async () => {
     try {
         const token = localStorage.getItem('token');
@@ -113,6 +114,8 @@ export const changeProfilePhoto = async (photoFile) => {
     }
 };
 
+=======
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
 export const fetchLostAndFoundData = async () => {
     try {
         const token = localStorage.getItem('token');
@@ -167,6 +170,7 @@ export const addLostAndFoundData = async (title, description, status) => {
         throw error;
     }
 };
+<<<<<<< HEAD
 
 export const fetchLostAndFoundDetail = async (id) => {
     try {
@@ -306,3 +310,5 @@ export const getMonthlyStats = async (endTime, totalData) => {
         throw error;
     }
 };
+=======
+>>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
