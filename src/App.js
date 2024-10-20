@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Routes, useNavigate } from 'react-router-dom';
@@ -37,6 +40,11 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
   };
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
@@ -132,6 +140,9 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
+export default App;
+=======
 export default App;
 =======
 <<<<<<< HEAD
@@ -274,3 +285,4 @@ function App() {
 export default App;
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78

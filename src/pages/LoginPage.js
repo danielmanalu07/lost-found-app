@@ -4,23 +4,33 @@ import { Link, useNavigate } from "react-router-dom";
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 import '../styles/login.css';
 =======
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 import { useAuth } from '../App';
 import '../styles/login.css';
 import { login } from '../services/api';
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+<<<<<<< HEAD
+    const navigate = useNavigate();
+    const { login: authLogin } = useAuth();
+=======
 <<<<<<< HEAD
     const navigate = useNavigate();
     const { login: authLogin } = useAuth();
@@ -33,11 +43,14 @@ function LoginPage() {
     const { login: authLogin } = useAuth();
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError('');
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -55,6 +68,7 @@ function LoginPage() {
                 setSuccess(response.data.message);
 =======
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 
         try {
             const data = await login(email, password);
@@ -64,8 +78,11 @@ function LoginPage() {
                 navigate('/');
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
             } else {
                 setError('Login gagal: Token tidak ditemukan dalam respons.');
             }
@@ -84,10 +101,14 @@ function LoginPage() {
 
 =======
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 =======
 
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
     return (
         <div className="container d-flex justify-content-center align-items-center vh-100">
             <div className="card p-4 login-card w-75 bg-light">
@@ -102,6 +123,8 @@ function LoginPage() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
                 {success && (
                     <div className="alert alert-success" role="alert">
                         {success}
@@ -111,6 +134,7 @@ function LoginPage() {
 =======
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                 <form onSubmit={handleLogin} className="animate__animated animate__fadeIn">
                     <div className="form-group mb-3">
                         <label htmlFor="email">Email</label>
@@ -164,6 +188,10 @@ export default LoginPage;
 <<<<<<< HEAD
 export default LoginPage;
 =======
+<<<<<<< HEAD
+export default LoginPage;
+=======
 export default LoginPage;
 >>>>>>> master
 >>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
+>>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
