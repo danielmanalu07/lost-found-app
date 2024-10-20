@@ -2,33 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from "react-router-dom";
 import Header from '../layouts/header';
-<<<<<<< HEAD
 import { fetchLostAndFoundData, deleteLostAndFoundData, getDailyStats, getMonthlyStats } from '../services/api';
 import { useAuth } from '../App';
-=======
-<<<<<<< HEAD
-import { fetchLostAndFoundData, deleteLostAndFoundData, getDailyStats, getMonthlyStats } from '../services/api';
-import { useAuth } from '../App';
-=======
-import { fetchLostAndFoundData } from '../services/api';
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 
 function HomePage() {
     const [lostAndFoundItems, setLostAndFoundItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-<<<<<<< HEAD
     const { user } = useAuth();
     const [stats, setStats] = useState(null);
-=======
-<<<<<<< HEAD
-    const { user } = useAuth();
-    const [stats, setStats] = useState(null);
-=======
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 
     useEffect(() => {
         const successMessage = localStorage.getItem('success');
@@ -43,14 +26,10 @@ function HomePage() {
         }
 
         fetchData();
-    });
+    }, [user]); // Memasukkan user sebagai dependency agar fetchData dipanggil saat user berubah
 
     const fetchData = async () => {
         try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
             const userId = user ? user.id : null;
 
             if (!userId) {
@@ -63,16 +42,6 @@ function HomePage() {
             setIsLoading(false);
         } catch (err) {
             if (err.message === 'No authentication token found') {
-<<<<<<< HEAD
-=======
-=======
-            const data = await fetchLostAndFoundData();
-            setLostAndFoundItems(data);
-            setIsLoading(false);
-        } catch (err) {
-            if (err.message === false) {
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                 Swal.fire({
                     title: 'Authentication Error',
                     text: 'Please log in to view this page.',
@@ -81,20 +50,13 @@ function HomePage() {
                 }).then(() => {
                     navigate('/login');
                 });
-<<<<<<< HEAD
-=======
             } else {
                 setError('Failed to fetch data. Please try again later.');
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
             }
             setIsLoading(false);
         }
     };
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
     const handleDelete = async (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -108,17 +70,9 @@ function HomePage() {
                 try {
                     await deleteLostAndFoundData(id);
                     setLostAndFoundItems(lostAndFoundItems.filter(item => item.id !== id));
-                    Swal.fire(
-                        'Deleted!',
-                        'The item has been deleted.',
-                        'success'
-                    );
+                    Swal.fire('Deleted!', 'The item has been deleted.', 'success');
                 } catch (error) {
-                    Swal.fire(
-                        'Error!',
-                        'Failed to delete the item. Please try again.',
-                        'error'
-                    );
+                    Swal.fire('Error!', 'Failed to delete the item. Please try again.', 'error');
                 }
             }
         });
@@ -150,13 +104,6 @@ function HomePage() {
         }
     };
 
-
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
     return (
         <div>
             <Header />
@@ -167,21 +114,12 @@ function HomePage() {
                             <Link className='btn btn-sm btn-info' to={'/add'}>Tambah Data</Link>
                         </div>
                         <div className='card-body'>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                             <button className="btn btn-info me-2" onClick={handleDailyStats}>
                                 View Daily Stats
                             </button>
                             <button className="btn btn-info" onClick={handleMonthlyStats}>
                                 View Monthly Stats
                             </button>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                             {isLoading ? (
                                 <p className='text-center'>Loading...</p>
                             ) : error ? (
@@ -206,10 +144,6 @@ function HomePage() {
                                                     <td>{item.description}</td>
                                                     <td>{item.status}</td>
                                                     <td>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                                                         <Link className="btn btn-sm btn-warning me-2" to={`/${item.id}`}>
                                                             Detail
                                                         </Link>
@@ -222,33 +156,17 @@ function HomePage() {
                                                         >
                                                             Delete
                                                         </button>
-<<<<<<< HEAD
-=======
-=======
-                                                        <button className="btn btn-sm btn-warning me-2">Edit</button>
-                                                        <button className="btn btn-sm btn-danger">Delete</button>
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                                                     </td>
                                                 </tr>
                                             ))}
                                         </tbody>
                                     </table>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                                     {stats && (
                                         <div className="mt-5">
                                             <h3>Statistics</h3>
                                             <pre>{JSON.stringify(stats, null, 2)}</pre>
                                         </div>
                                     )}
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
                                 </div>
                             )}
                         </div>
@@ -259,12 +177,4 @@ function HomePage() {
     );
 }
 
-<<<<<<< HEAD
 export default HomePage;
-=======
-<<<<<<< HEAD
-export default HomePage;
-=======
-export default HomePage;
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
