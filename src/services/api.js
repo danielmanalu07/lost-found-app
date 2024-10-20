@@ -27,10 +27,6 @@ export const register = async (name, email, password) => {
     }
 };
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 export const getProfile = async () => {
     try {
         const token = localStorage.getItem('token');
@@ -117,11 +113,6 @@ export const changeProfilePhoto = async (photoFile) => {
     }
 };
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 export const fetchLostAndFoundData = async () => {
     try {
         const token = localStorage.getItem('token');
@@ -176,10 +167,6 @@ export const addLostAndFoundData = async (title, description, status) => {
         throw error;
     }
 };
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
 
 export const fetchLostAndFoundDetail = async (id) => {
     try {
@@ -290,7 +277,6 @@ export const getDailyStats = async (endTime, totalData) => {
     }
 };
 
-
 export const getMonthlyStats = async (endTime, totalData) => {
     try {
         const token = localStorage.getItem('token');
@@ -319,8 +305,3 @@ export const getMonthlyStats = async (endTime, totalData) => {
         throw error;
     }
 };
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 185eaa44b215457e81088093694d8f886ac9df2c
->>>>>>> dc46d500518e29e83d8d90e839e57c36b9e73b78
